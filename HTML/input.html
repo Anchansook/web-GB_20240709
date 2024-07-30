@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 입력 요소</title>
+</head>
+<body>
+    <!-- <input /> : 사용자로부터 입력을 받는 기본적인 요소 -->
+
+    <!-- type 속성 : 입력 요소의 형태 -->
+
+    <!-- text : type의 기본값, 문자열을 그대로 입력받음 -->
+    <input type="text" />
+    <!-- password : 입력받은 문자열을 가림 -->
+    <input type="password" />
+
+    <!--* 날짜와 관련된 타입은 firefox에서는 지원 안됨 -->
+    <!-- date : 날짜를 'UI를 통해서' 입력 받음 -->
+    <input type="date" />
+    <!-- time : 시간을 UI를 통해서 입력 받음 -->
+    <input type="time" />
+    <!-- datetime-local : 날짜 및 시간을 UI를 통해서 입력 받음 -->
+    <input type="datetime-local" />
+
+    <!-- file : 파일을 입력 받을 수 있음 -->
+    <input type="file" />
+    <!-- accept : 파일 입력 시 확장자에 대한 제한 -->
+    <input type="file" accept="image/*" />
+
+    <!-- number : 숫자만 입력받을 수 있음 -->
+    <input type="number" />
+    <!-- min, max, step : 최소값, 최대값, 단위별 -->
+    <input type="number" min="-10" max="10" step="3" />
+
+    <!-- range : 숫자의 선택폭의 제한 -->
+    <input type="range" min="-10" max="10" step="3" />
+
+    <!-- checkbox : 주어진 리스트 중에서 복수 선택 -->
+    <!-- name 속성으로 체크박스를 그룹화 -->
+    <!--* value 속성이 반드시 필요함! -->
+    <form>
+        <input type="checkbox" name="skill" value="java" /> java
+        <input type="checkbox" name="skill" value="python" /> python
+        <input type="checkbox" name="skill" value="c" /> c
+        <input type="checkbox" name="skill" value="ruby" /> ruby
+        <button>제출</button>
+    </form>
+
+    <!-- radio : 주어진 리스트 중에 하나를 선택 -->
+    <!-- name 속성으로 라디오를 그룹화 -->
+    <!--* value 속성이 반드시 필요! -->
+    <input type="radio" name="a" value="x" />
+    <input type="radio" name="a" value="y" />
+    <input type="radio" name="b" value="x" />
+    <input type="radio" name="b" value="y" />
+
+    <!-- hidden : 화면에 보이지 않음 -->
+    <form>
+        <input type="hidden" name="hiddenData" value="Hello" />
+        <button>제출</button>
+    </form>
+</body>
+</html>
