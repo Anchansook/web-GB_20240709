@@ -6,6 +6,50 @@
     <title>HTML 텍스트 요소</title>
 </head>
 <body>
+    <!-- HTML 문서는 줄바꿈을 인식하지 못함 -->
+    <!-- 줄 바꿈을 적용하고 싶다면 <br /> 태그를 줄바꿈할 위치에 작성 -->
+    내가 그린 기린 그림은 잘 그린 기린 그림이고 <br />
+    네가 그린 기린 그림은 잘 못 그린 기린 그림이다. <br />
     
+    <!-- HTML 문서는 띄어쓰기를 한 번만 인식 -->
+    <!-- 띄어쓰기를 여러번 적용하고자 한다면 &nbsp;를 사용함 -->
+    안녕하세요&nbsp;&nbsp;&nbsp;&nbsp;안녕하세요 <br />
+
+    <!-- HTML 문서는 <, > 사용 시 태그로 인식 할 수 있음 -->
+    <!-- <, >를 문자로 사용하고 싶다면 &lt;, &gt;을 사용함 -->
+    우승 국가는 &lt;span&gt; 입니다.
+
+    <!-- <p></p> : 하나의 문단을 표현하는 요소 -->
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed porta elit. Phasellus elementum rhoncus dui, ac pharetra nisi interdum vitae. Suspendisse pulvinar ullamcorper elit. Pellentesque quis faucibus diam, sit amet blandit metus. Integer sem urna, congue quis rhoncus ut, ornare nec odio. Mauris sed enim accumsan, lobortis dolor eget, facilisis enim.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed porta elit. Phasellus elementum rhoncus dui, ac pharetra nisi interdum vitae. Suspendisse pulvinar ullamcorper elit. Pellentesque quis faucibus diam, sit amet blandit metus. Integer sem urna, congue quis rhoncus ut, ornare nec odio. Mauris sed enim accumsan, lobortis dolor eget, facilisis enim.
+    </p>
+
+    <!-- HTML의 태그는 대소문자를 구분하지 않음 -->
+    <P>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed porta elit. Phasellus elementum rhoncus dui, ac pharetra nisi interdum vitae. Suspendisse pulvinar ullamcorper elit. Pellentesque quis faucibus diam, sit amet blandit metus. Integer sem urna, congue quis rhoncus ut, ornare nec odio. Mauris sed enim accumsan, lobortis dolor eget, facilisis enim.
+    </P>
+
+    <!-- HTML은 문법상 오류가 있다 하더라도 에러를 출력하지 않음 -->
+    <!-- EX : 태그를 닫지 않음 -->
+    <!-- <p>안녕하세요. -->
+
+    <!-- XML 기반의 HTML은 대소문자 및 문법을 반드시 지켜야 정상 동작함 -->
+
+    <!-- <h1></h1> ~ <h6></h6> : 제목을 표시하기 위한 요소 -->
+    <h1>h1 제목</h1>
+    <h2>h2 제목</h2>
+    <h3>h3 제목</h3>
+    <h6>h6 제목</h6>
+
+    <!-- <strong></strong> : 특정 문자나 단어, 문단을 강조하기 위해 사용하는 요소 -->
+    <p>부산광역시 부산진구 <strong>중앙대로</strong> 668</p>
+
+    <!-- <em></em> : 특정 문자나 단어, 문단을 강조하기 위해 사용하는 요소 -->
+    <p>부산광역시 부산진구 <em>중앙대로</em> 668</p>
+
+    <p>부산광역시 부산진구 <strong><em>중앙대로</em></strong> 668</p>
 </body>
 </html>
