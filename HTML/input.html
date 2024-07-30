@@ -6,9 +6,9 @@
     <title>HTML 입력 요소</title>
 </head>
 <body>
-    <!-- <input /> : 사용자로부터 입력을 받는 기본적인 요소 -->
+    <!--# <input /> : 사용자로부터 입력을 받는 기본적인 요소 -->
 
-    <!-- type 속성 : 입력 요소의 형태 -->
+    <!--# type 속성 : 입력 요소의 형태 -->
 
     <!-- text : type의 기본값, 문자열을 그대로 입력받음 -->
     <input type="text" />
@@ -60,5 +60,34 @@
         <input type="hidden" name="hiddenData" value="Hello" />
         <button>제출</button>
     </form>
+
+    <!-- checked 속성 : checkbox와 radio 타입에 초기 선택여부 지정 -->
+    <input type="checkbox" checked />
+    <input type="checkbox" />
+
+    <!-- readonly 속성 : 입력 요소를 읽기전용으로 지정 -->
+    <input type="text" value="기본값" readonly />
+
+    <!-- disabled 속성 : 입력 요소를 사용하지 않는 것으로 지정 -->
+    <input type="text" value="사용 불가" disabled />
+
+    <!-- <hr /> : 구분선 -->
+    <hr />
+
+    <!-- <select></select> : 주어진 리스트에서 특정 요소를 선택할 때 사용하는 요소 -->
+    <!-- multiple 속성 : 다중 선택 가능 -->
+    <select multiple>
+        <!-- <option></option> : 선택할 수 있는 항목 요소 -->
+        <!--* option 요소의 컨텐츠는 실제 값이 아님, 실제 값은 value 속성으로 지정해야 함 -->
+        <!-- selected 속성 : 초기 선택여부 지정 -->
+        <option value="apple">사과</option>
+        <option value="banana" selected>바나나</option>
+        <option value="cacao">카카오</option>
+    </select>
+
+    <!-- <textarea></textarea> : 문자열을 여러줄에 걸쳐서 작성할 수 있도록 하는 요소 -->
+    <!-- rows, cols 속성 : textarea의 크기를 지정 -->
+    <!--! value 속성을 사용하지 않음! 만약에 기본값을 지정하고 싶을 땐 요소의 컨텐츠로 지정 -->
+    <textarea rows="10" cols="4">텍스트에어리아 기본값</textarea>
 </body>
 </html>
