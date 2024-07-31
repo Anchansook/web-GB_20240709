@@ -100,14 +100,21 @@
 
         /*
             border : 
-                - 
+                - 테두리 선의 스타일, 두께, 색상, 모서리 각도를 지정 가능
         */
 
         /*
-            border-style : 
-                - 
-                - 
+            border-style : 테두리 선의 스타일 지정
+                - solid : 실선
+                - none : 테두리 제거
         */
+        .border-style-1 {
+            border-style: solid;
+        }
+
+        .border-style-2 {
+            border-style: none solid;
+        }
         
 
         /*
@@ -119,8 +126,17 @@
 
 
         /*
-            border-width : 
+            border-width : 테두리 선의 두께 지정, border-style이 반드시 지정되어 있어야 함
         */
+        .border-width-1 {
+            border-style: dotted;
+            border-width: 10px;
+        }
+        
+        .border-width-2 {
+            border-style: double;
+            border-width: 5px 10px 15px 20px;
+        }
         
 
         /*
@@ -132,8 +148,22 @@
 
 
         /*
-            border-color : 
+            border-color : 테두리 선의 색상 지정, border-style이 반드시 지정되어 있어야 함
         */
+        .border-color-1 {
+            border-style: solid;
+            border-width: 5px;
+            border-color: red
+        }
+
+        .border-color-2 {
+            border-style: solid;
+            border-width: 5px;
+
+            border-top-color: red;
+            border-left-color: blue;
+            border-right-color: green;
+        }
         
 
         /*
@@ -164,16 +194,39 @@
         */
 
         /*
-            border : 
-                - 
+            border : border-width, border-style, border-color를 한 번에 설정
+                - border : 너비, 스타일, 색상;
+                - border-top, border-right, border-bottom, border-left
         */
+        .border {
+            border: 3px dashed rgba(255, 255, 0, 0.8);
+        }
         
 
         /* 
-            box-sizing : 
-                - 
-                - 
+            box-sizing : width, height 속성의 대상 영역을 지정 
+                - content-box : width, height 값을 컨텐츠 영역으로 지정
+                - border-box : width, height 값을 컨텐츠 + 패딩 + 테두리 영역으로 지정
         */
+        .content-box {
+            box-sizing: content-box;
+            width: 100px;
+            height: 100px;
+            border: 5px solid black;
+            padding: 10px;
+            margin: 20px;
+            overflow: hidden;
+        }
+
+        .border-box {
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            border: 5px solid black;
+            padding: 10px;
+            margin: 20px;
+            overflow: hidden;
+        }
         
 
     </style>
