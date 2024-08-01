@@ -175,8 +175,20 @@
 
 
         /*
-            border-radius : 
+            border-radius : 테두리 모서리의 둥글기를 지정
         */
+        .border-radius-1 {
+            background-color: rgba(0, 255, 0, 0.5);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 16px;
+            border-bottom-left-radius: 24px;
+        }
+
+        .border-radius-2 {
+            background-color: rgba(0, 0, 255, 0.5);
+            border-radius: 16px;
+        }
         
 
         /*
@@ -187,6 +199,17 @@
         */
 
         /* 타원형 모서리 적용 방법 */
+        .border-radius-3 {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 12px / 24px;
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            border-radius: 50%;
+        }
         
 
         /*
@@ -232,6 +255,8 @@
     </style>
 </head>
 <body>
+
+    <div class="circle"></div>
 
     <div class="width-height-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
     <div class="width-height-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
