@@ -9,12 +9,13 @@
 
         /*
             float 속성 : 
-                - 
-                - 
-                - 
-                - 
-                - 
-                - 
+                - 레이아웃 구성 시 block 레벨 요소에 가로 정렬을 하기 위한 속성
+                - 일반적으로 가로 정렬은 flex로 구성하지만 flex를 사용할 수 없을 때 float을 사용
+                - width 지정하지 않으면 컨텐츠 너비로 지정됨
+
+                - none : 지정하지 않음
+                - left : 좌측 정렬
+                - right : 우측 정렬
         */
         #parent {
             background-color: rgba(0, 0, 0, 0.2);
@@ -28,6 +29,14 @@
             height: 100px;
             background-color: rgba(0, 0, 255, 0.5);
             margin: 20px 20px;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .float-right {
+            float: right;
         }
 
     </style>
