@@ -83,6 +83,10 @@ body {
     background-image: url(./images/moon.png);
 }
 
+.hamburger {
+    display: none;
+}
+
 /* main --------------------------------------------------------------------------- */
 
 #main {
@@ -217,5 +221,49 @@ body {
     .video-content {
         border-radius: 36px;
         height: 100%;
+    }
+
+    #header {
+        width: 712px;
+        height: 72px;
+    }
+
+    .header-nav {
+        display: none;
+    }
+
+    .icon-button.earth {
+        display: none;
+    }
+    
+    .icon-button.moon {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        background-image: url('https://cdn.icon-icons.com/icons2/2070/PNG/512/hamburger_icon_125534.png');
+    }
+
+    .icon-button {
+        width: 28px;
+        height: 28px;
+    }
+
+    .impact, .report, .group {
+        margin-top: 17px;
+    }
+
+    .video-text-title {
+        font-size: 32px;
+    }
+    
+    .video-text-sub {
+        font-size: 15px;
+    }
+
+    .video-text {
+        top: 50px;
+        left: 56px;  
     }
 }
