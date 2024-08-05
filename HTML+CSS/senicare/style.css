@@ -1,3 +1,12 @@
+:root {
+    --primary-color: rgba(0, 191, 122, 1);
+    --error-color: rgba(255, 84, 64, 1);
+    --gray-color: rgba(138, 146, 166, 1);
+    --dark-gray-color: rgba(64, 64, 64, 1);
+    --default-color: rgba(35, 45, 66, 1);
+}
+/* :root도 알아보기! */
+
 body {
     margin: 0px;
 }
@@ -38,8 +47,6 @@ body {
     gap: 24px;
 
     width: 380px;
-
-    background-color: antiquewhite;
 }
 
 .title-box {
@@ -52,7 +59,7 @@ body {
     font-size: 30px;
     font-weight: 700;
     line-height: 173%;
-    color: rgba(64, 64, 64, 1);
+    color: var(--dark-gray-color);
 }
 
 .title-box .logo {
@@ -75,14 +82,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-
-    background-color: yellowgreen;
 }
 
 .input-box .label {
     font-size: 16px;
     font-weight: 400;
-    color: rgba(138, 146, 166, 1);
+    color: var(--gray-color);
 }
 
 .input-box input {
@@ -99,7 +104,120 @@ body {
     font-size: 16px;
     font-weight: 400;
     line-height: 175%;
-    color: rgba(35, 45, 66, 1);
+    color: var(--default-color);
 }
+
+input::placeholder {
+    color: var(--gray-color);
+}
+
+.input-box .message {
+    margin-top: -4px;
+    /* 원래 있던 마진에서 마이너스 시킬 수 있음 */
+
+    height: 16px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.message.error {
+    color: var(--error-color);
+}
+
+.message.primary {
+    color: var(--primary-color);
+}
+
+.button-container {
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.primary-button {
+    border-radius: 6px;
+    padding: 8px 24px;
+
+    background-color: var(--primary-color);
+    
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 175%;
+    text-align: center;
+
+    color: rgba(255, 255, 255, 1);
+}
+
+.primary-button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.full-width {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.link {
+    align-self: center;
+    /* 인라인 형태로 가운데 정렬됨 */
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 175%;
+
+    color: rgba(113, 113, 113, 1);
+}
+
+.link:hover {
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.divider {
+    width: 100%;
+    border-bottom: 1px solid rgba(238, 238, 238, 1);
+}
+
+.sns-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.sns-container .title {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--gray-color);
+}
+
+.sns-button-container {
+    display: flex;
+    gap: 24px;
+}
+
+.sns-button {
+    border-radius: 50%;
+
+    width: 56px;
+    height: 56px;
+}
+
+.sns-button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.sns-button.kakao {
+    background-color: yellow;
+}
+
+.sns-button.naver {
+    background-color: green;
+}
+/* 붙여쓰면 나열해서 이름을 써둔 애들로 인식 */
 
 /* sign-in-container ------------------------------------------------------------- */
