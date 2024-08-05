@@ -1,0 +1,105 @@
+body {
+    margin: 0px;
+}
+
+/* common -------------------------------------------------------------------- */
+
+#sign-in-wrapper {
+    display: flex;
+
+    width: 100%;
+    min-width: 1440px;
+    height: 100vh;
+    min-height: 964px;
+}
+
+/* sign-in-wrapper ----------------------------------------------------------- */
+
+.sign-in-image {
+    width: 830px;
+    background-color: rgba(0, 255, 0, 0.4);
+}
+
+/* sign-in-image ---------------------------------------------------------------- */
+
+.sign-in-container {
+    flex: 1;
+    /* 남은 영역 전체를 차지하게 */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-in-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    width: 380px;
+
+    background-color: antiquewhite;
+}
+
+.title-box {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.title-box .title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 173%;
+    color: rgba(64, 64, 64, 1);
+}
+
+.title-box .logo {
+    width: 30px;
+    height: 30px;
+
+    background-color: rgba(0, 255, 0, 0.4);
+}
+
+.input-container {
+    align-self: stretch;
+    /* 너비 영역을 다 차지하도록 / width 100% 해도 됨 */
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    background-color: yellowgreen;
+}
+
+.input-box .label {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(138, 146, 166, 1);
+}
+
+.input-box input {
+    background: none;
+    outline: none;
+    /* 포커스 됐을 때 생기는 보더라인 = 아웃라인 */
+
+    border: 1px solid rgba(238, 238, 238, 1);
+    border-radius: 6px;
+    padding: 8px 16px;
+
+    background-color: rgba(255, 255, 255, 1);
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 175%;
+    color: rgba(35, 45, 66, 1);
+}
+
+/* sign-in-container ------------------------------------------------------------- */
