@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>시니케어</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./auth-style.css" />
     <link rel="stylesheet" href="./common.css" />
 </head>
 <body>
-    <div id="sign-in-wrapper">
-        <div class="sign-in-image"></div>
-        <div class="sign-in-container">
-            <div class="sign-in-box">
+    <div id="auth-wrapper">
+        <div class="auth-image"></div>
+        <div class="auth-container">
+            <div class="auth-box">
                 <div class="title-box">
                     <div class="title">시니케어</div>
                     <div class="logo"></div>
@@ -19,18 +19,26 @@
                 <div class="input-container">
                     <div class="input-box">
                         <div class="label">아이디</div>
-                        <input type="text" placeholder="아이디를 입력해주세요." />
+                        <div class="input-area">
+                            <input type="text" placeholder="아이디를 입력해주세요." />
+                        </div>
                         <div class="message"></div>
                     </div>
                     <div class="input-box">
                         <div class="label">비밀번호</div>
-                        <input type="password" placeholder="비밀번호를 입력해주세요." />
-                        <div class="message error">로그인 정보가 일치하지 않습니다.</div>
+                        <div class="input-area">
+                            <input type="password" placeholder="비밀번호를 입력해주세요." />
+                        </div>
+                        <div class="message error"></div>
                     </div>
                 </div>
                 <div class="button-container">
-                    <div class="primary-button full-width">로그인</div>
-                    <div class="link">회원가입</div>
+                    <div class="button primary full-width">로그인</div>
+                    <div class="link" onclick="location.href='./sign-up.html'">회원가입</div>
+                    <!--
+                        html 내에서 페이지 이동 onclick도 가능
+                        => onclick="location.href='./sign-in.html'" 
+                    -->
                 </div>
                 <div style="width: 64px;" class="divider"></div>
                 <div class="sns-container">
