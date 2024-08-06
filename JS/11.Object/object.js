@@ -144,6 +144,16 @@ soonJong = {
     address: goJong.address
 };
 
+// & 깊은 복사2 
+var soonJong = {};
+for (var key in goJong) {
+    soonJong[key] = goJong[key];
+}
+
+// & 깊은 복사3
+var soonJong = { ...goJong };
+
 soonJong.name = '이척';
+
 console.log(soonJong); // { name: '이척', age: 68, address: '서울특별시 운현궁' }
 console.log(goJong); // { name: '이형', age: 68, address: '서울특별시 운현궁' }
