@@ -34,58 +34,58 @@
                     <div class="input-box">
                         <div class="label">이름</div>
                         <div class="input-area">
-                            <input type="text" placeholder="이름을 입력해주세요." />
+                            <input id="user-name" type="text" placeholder="이름을 입력해주세요." />
                         </div>
-                        <div class="message"></div>
+                        <div id="user-name-message" class="message"></div>
                     </div>
 
                     <div class="input-box">
                         <div class="label">아이디</div>
                         <div class="input-area">
-                            <input type="text" placeholder="아이디를 입력해주세요." />
-                            <div class="input-button disable">중복 확인</div>
+                            <input id="user-id" type="text" placeholder="아이디를 입력해주세요." />
+                            <div id="user-id-button" class="input-button disable">중복 확인</div>
                         </div>
-                        <div class="message"></div>
+                        <div id="user-id-message" class="message"></div>
                     </div>
 
                     <div class="input-box">
                         <div class="label">비밀번호</div>
                         <div class="input-area">
-                            <input type="password" placeholder="비밀번호를 입력해주세요." />
+                            <input id="user-password" type="password" placeholder="비밀번호를 입력해주세요." />
                         </div>
-                        <div class="message"></div>
+                        <div id="user-password-message" class="message"></div>
                     </div>
 
                     <div class="input-box">
                         <div class="label">비밀번호 확인</div>
                         <div class="input-area">
-                            <input type="password" placeholder="비밀번호를 입력해주세요." />
+                            <input id="user-password-check" type="password" placeholder="비밀번호를 입력해주세요." />
                         </div>
-                        <div class="message"></div>
+                        <div id="user-password-check-message" class="message"></div>
                     </div>
 
                     <div class="input-box">
                         <div class="label">전화번호</div>
                         <div class="input-area">
-                            <input type="text" placeholder="-빼고 입력해주세요." />
-                            <div class="input-button disable">전화번호 인증</div>
+                            <input id="user-telnumber" type="text" placeholder="-빼고 입력해주세요." />
+                            <div id="user-telnumber-button" class="input-button disable">전화번호 인증</div>
                         </div>
-                        <div class="message"></div>
+                        <div id="user-telnumber-message" class="message"></div>
                     </div>
 
                     <div class="input-box">
                         <div class="label">인증번호</div>
                         <div class="input-area">
-                            <input type="text" placeholder="인증번호 4자리를 입력해주세요." />
-                            <div class="input-button disable">인증 확인</div>
+                            <input id="auth-number" type="text" placeholder="인증번호 4자리를 입력해주세요." />
+                            <div id="auth-number-button" class="input-button disable">인증 확인</div>
                         </div>
-                        <div class="message"></div>
+                        <div id="auth-number-message" class="message"></div>
                     </div>
 
                 </div>
 
                 <div class="button-container">
-                    <div class="button disable full-width">회원가입</div>
+                    <div id="sign-up-button" class="button disable full-width">회원가입</div>
                     <div class="link" onclick="location.href='./sign-in.html'">로그인</div>
                     <!--
                         html 내에서 페이지 이동 onclick도 가능
@@ -97,5 +97,7 @@
             </div>
         </div>
     </div>
+
+    <script src="./sign-up.js"></script>
 </body>
 </html>
