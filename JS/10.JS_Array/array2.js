@@ -61,33 +61,81 @@ array.forEach(function(item, index) {
 console.log('==============================');
 
 /*
-    map(콜백 함수) : 
-    - 
-    - 
+    map(콜백 함수) : 콜백 함수의 반환값들로 이루어진 새로운 배열을 생성해서 반환
+    - 원본 배열 변경 X
+    - forEach는 단순히 요소나 인덱스를 가지고 작업만 진행(반환값 X)
+    , map은 요소나 인덱스를 가지고 작업한 결과로 새로운 배열을 반환(반환값 O)
 */
+// & item을 안 쓰더라도 매개변수에는 넣어줘야 함
+var mapArray = array.map(function(item, index) {
+    return index;
+});
+console.log(mapArray);
+
+// 그대로 복사
+// & 아래에 for문으로 변경한 map 로직
+var newArray = array.map(function(item) { return item; });
+console.log(newArray);
 
 
 console.log('==============================');
 
 /*
-    filter(콜백 함수) : 
-    - 
-    - 
+    filter(콜백 함수) : 콜백 함수의 반환값이 true인 배열의 요소의 값만 추출한 새로운 배열을 생성
+    - 배열의 특정 케이스만 필터링 조건으로 추출해서 새로운 배열을 만들고 싶을 때 사용
+    - 원본 배열 변경 X
 */
+// & 아래에 for문으로 변경한 filter 로직
+var evenArray = array.filter(function(item, index) {
+    return item % 2 === 0;
+});
+console.log(evenArray);
+
+// * 위 메서드들은 남발 X, for문을 활용
+
+// # map을 일반 for문으로 구성
+// 1. 빈배열 생성
+var newArray = [];
+// 2. for문 작성
+for (var index in array) {
+    var item = array[index];
+
+    // 3. 빈배열에 요소 추가
+    newArray.push(item * item);
+}
+
+// # filter 일반 for문으로 구성
+// 1. 빈배열 생성
+var newArray = [];
+// 2. for문 작성
+for (var index in array) {
+    var item = array[index];
+
+    // 3. 짝수만 추출해서 요소 추가
+    if (item % 2 === 0) newArray.push(item);
+}
 
 
 console.log('==============================');
 
 /*
-    find(value, index) : 
+    find(콜백 함수) : 콜백 함수의 '결과가 true인 첫 번째 요소'를 반환
 */
+var result = array.find(function(item, index) {
+    return item % 2 === 1;
+});
+console.log(result);
 
 
 console.log('==============================');
 
 /*
-    find(value, index) : 
+    findIndex(콜백 함수) : 콜백 함수 '결과가 true인 첫 번째 요소의 인덱스'를 반환
 */
+var result = array.findIndex(function(item, index) {
+    return item % 2 === 1;
+});
+console.log(result);
 
 
 console.log('==============================');
