@@ -85,21 +85,22 @@
         */
 
         /*
-            className
-            - 
-            - 
+            id
+            - id 속성 값 반환 또는 변경
         */
-        
+        var userPwMessageElement = document.getElementById('user-p-message');
+        console.log(userPwMessageElement.id);
+        userPwMessageElement.id = 'user-pw-message';
 
 
         console.log('==============================');
 
         /*
             className
-            - 
-            - 
+            - class 속성 값 반환 또는 변경
         */
-        
+        console.log(userPwMessageElement.className);
+        userPwMessageElement.className = 'error-message';
 
 
         console.log('==============================');
@@ -107,26 +108,26 @@
 
         /*
             hasAttribute(attribute)
-            - 
-            - 
-            - 
+            - 매개변수로 전달된 속성을 '가지고 있는지 확인'
+            - boolean 값 반환
 
             getAttribute(attribute)
-            - 
-            - 
-            - 
+            - 매개변수로 전달된 '속성 값을 반환'
+            - string 값 반환
 
             setAttribute(attribute, value)
-            - 
-            - 
-            - 
+            - '첫 번째 매개변수로 전달한 속성의 값'을 '두 번째 매개변수 값으로 변경'
+            - undefined 반환
 
             removeAttribute(attribute)
-            - 
-            - 
-            - 
+            - 매개변수로 전달한 속성을 '제거'
+            - undefined 반환
         */
-        
+        var userPwElement = document.getElementById('user-pw');
+        console.log(userPwElement.hasAttribute('type'));
+        userPwElement.setAttribute('type', 'password');
+        console.log(userPwElement.getAttribute('type'));
+        userPwElement.removeAttribute('type');
 
 
         console.log('==============================');
@@ -137,69 +138,75 @@
 
         /*
             textContent
-            - 
-            - 
-            - 
-            - 
-            - 
+            - 요소의 텍스트 콘텐츠를 반환 또는 변경
+            - 마크업 무시됨
+            - 요소에 새로운 텍스트 컨텐츠를 지정할 때 사용
+            - '마크업 태그를 포함'한다면 마크업을 '순수 문자열로 인식'
         */
-        
+        console.log(userPwMessageElement.textContent);
+        userPwMessageElement.textContent = '잘못된 <strong>비밀번호</strong>입니다.';
 
 
         console.log('==============================');
 
         /*
             innerHTML
-            - 
-            - 
+            - 요소의 HTML을 반환 또는 변경
+            - XSS (Cross Site Script) 보안 취약점에 노출됨
         */
-        
+        console.log(userPwMessageElement.innerHTML);
+        userPwMessageElement.innerHTML = '잘못된 <strong>비밀번호</strong>입니다.';
+
+        // XSS (Cross Site Script) 보안 취약점 : ex) 사이트 넘어가기 등
+        // var statement = prompt('입력해주세요!');
+        // userPwMessageElement.innerHTML = statement;
 
 
         console.log('==============================');
         
         /*
             createElement(tagName)
-            - 
-            - 
-            - 
+            - 매개변수로 전달한 태그에 해당하는 '요소 객체 생성'
+            - HTMLElement
 
             createTextNode(text)
-            - 
-            - 
-            - 
+            - 매개변수로 전달한 텍스트를 '요소의 텍스트 값으로 지정'
+            - Text 객체 반환
 
             appendChild(Node)
-            - 
-            - 
-            - 
+            - 매개변수로 전달한 요소를 '마지막 자식 요소로 추가'
+            - 작업이 완료된 HTMLElement 반환
 
             removeChild(Node)
-            - 
-            - 
-            - 
+            - 매개변수로 전달한 요소를 '자식 요소에서 제거'
+            - undefined
         */
-        
+        var signUpButtonElement = document.createElement('button');
+        var signUpButtonText = document.createTextNode('회원가입');
+        signUpButtonElement.appendChild(signUpButtonText);
+        signUpButtonElement.className = 'custom-button';
+
+        var buttonBoxElement = document.getElementById('button-box');
+        buttonBoxElement.appendChild(signUpButtonElement);
 
 
         console.log('==============================');
         
         /*
             insertAdjacentHTML(position, string)
-            - 
-            - 
-            - 
-            - 
+            - 첫 번째 매개변수로 전달한 'position 위치'에 두 번째 매개변수로 전달한 'HTML을 삽입'
+            - position => (beforebegin, afterbegin, beforeend, afterend)
+            - 두 번째 매개변수는 문자열로 된 HTML 
         */
-        
+        buttonBoxElement.insertAdjacentHTML('afterbegin', '<button class="custom-button">회원가입</button>');
 
 
         console.log('==============================');
         
         /*
-            style : 
+            style : inline 스타일 지정 가능
         */
-
+        buttonBoxElement.style.backgroundColor = 'rgba(255, 0, 0, 0.4)';
 
 
     </script>

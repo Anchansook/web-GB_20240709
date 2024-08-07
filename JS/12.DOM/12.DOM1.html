@@ -21,30 +21,36 @@
 
 
     <script>
-        /*
+        /* 
             하나의 요소 노드 선택(DOM Query)
         */
 
         /*
             document.getElementById(id) : 
-            -
-            - 
-            - 
-            - 
+            - 'id 속성 값'으로 요소를 하나 선택
+            - 만약 동일한 id가 여러 개 존재한다면 최상위에 있는 요소만 선택
+            - HTMLElement를 상속받은 객체를 반환
+            - 모든 브라우저에서 사용 가능
         */
-        
+        var userIdElement = document.getElementById('user-id');
+        console.log(userIdElement);
+
+        var formElement = document.getElementById('sign-in-form');
+        console.log(formElement);
 
 
         console.log('==============================');
 
         /*
-             document.querySelector(cssSelector) : 
-             - 
-             - 
-             - 
-         */
+            document.querySelector(cssSelector) : 
+            - 'CSS 선택자를 사용'하여 요소를 하나 선택
+            - 복수로 선택된다면 최상위 하나의 요소만 선택
+            - HTMLElement를 상속받은 객체를 반환
+            - IE8 이상에서만 사용 가능
+        */
+        var submitButtonElement = document.querySelector('#sign-in-form > button');
+        console.log(submitButtonElement);
         
-         
 
         console.log('==============================');
 
@@ -54,60 +60,66 @@
 
         /*
             document.getElementsByClassName(class)
-            - 
-            - 
-            - 
-            - 
+            - 'class 속성 값'으로 해당하는 요소를 모두 선택
+            - 공백으로 구분하여 여러 개의 class를 지정해서 선택할 수 있음
+            - HTMLCollection을 반환
         */
-        
-        
+        var inputElements = document.getElementsByClassName('custom-input');
+        console.log(inputElements);
+
+        // for문 반복으로 하나씩 선택
+        for (var inputElement of inputElements)
+            console.log(inputElement);
+
 
         console.log('==============================');
 
         /*
             document.getElementsByTagName(tagName)
-            - 
-            - 
-            - 
+            - '태그명'으로 요소를 모두 선택
+            - HTMLCollection을 반환
         */
-        
+        var inputTagElements = document.getElementsByTagName('input');
+        console.log(inputTagElements);
         
 
         console.log('==============================');
 
         /*
             document.querySelectorAll(selector)
-            - 
-            - 
-            - 
+            - '지정된 CSS 선택자'를 사용하여 요소를 모두 선택
+            - NodeList를 반환
         */
-        
+        var formInputElements = document.querySelectorAll('#sign-in-form > input');
+        console.log(formInputElements);
+
+        for (var element of formInputElements) 
+            console.log(element);
         
 
         console.log('==============================');
 
         /*
-            요소 탐색 (DOM Traversing)
+            요소 탐색 (DOM Traversing) - 지양
         */
 
         /*
             parentNode
-            - 
-            - 
-            - 
+            - 부모 요소를 탐색
+            - HTMLElement를 상속받은 객체를 반환
         */
-        
+        console.log(formElement.parentNode);
         
 
         console.log('==============================');
 
         /*
             firstElementChild, lastElementChild
-            - 
-            - 
-            - 
+            - 자식 요소 선택
+            - HTMLElement를 상속받은 객체 반환
         */
-        
+        console.log(formElement.firstElementChild);
+        console.log(formElement.lastElementChild);
 
 
         console.log('==============================');
