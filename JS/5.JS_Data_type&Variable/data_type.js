@@ -68,7 +68,7 @@ console.log(name_); // 홍길동 : 변경 불가능
 
 /*
     boolean : 논리 참, 거짓을 나타내는 타입
-    - 빈 문자열, null, undefined, 0은 false로 간주됨
+    - 빈 문자열(''), null, undefined, 0은 false로 간주됨
 */
 var condition = false;
 if (!condition)
