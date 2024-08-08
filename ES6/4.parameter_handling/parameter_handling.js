@@ -62,3 +62,48 @@ let newNumbers2 = [...numbers, ...numbers2]; // => [1, 2, 3, 4, 5, 6, 7, 8]
 console.log(newNumbers2);
 newNumbers2 = [...numbers2, ...numbers]; // => [5, 6, 7, 8, 1, 2, 3, 4]
 console.log(newNumbers2);
+
+
+console.log('========================================');
+
+// 배열 요소 추가에 사용
+newNumbers2 = [...newNumbers2, 9, 10];
+console.log(newNumbers2);
+
+
+console.log('========================================');
+
+// 객체 복사, 연결, 요소 추가에 사용
+const king = {
+    name: '이성계',
+    tombName: '태조'
+};
+
+let newKing = {...king};
+newKing.name = '이방과';
+console.log(king);
+console.log(newKing);
+
+const kingInfo = {
+    address: '서울특별시',
+    country: '고려'
+};
+
+//#
+newKing = {...king, ...kingInfo};
+console.log(newKing);
+
+newKing = {...kingInfo, ...king};
+console.log(newKing);
+// 객체는 키로 접근하기 때문에 순서 의미없음!
+
+newKing = {...king, birth: '1335-11-04'};
+console.log(newKing);
+
+//#
+newKing = {...king, name: '이단', birth: '1335-11-04'};
+console.log(newKing);
+
+newKing = {name: '이단', ...king, birth: '1335-11-04'};
+console.log(newKing);
+// 여기선 ...king이 뒤에 와서 덮어씌우기 때문에 값이 변경안됨!
