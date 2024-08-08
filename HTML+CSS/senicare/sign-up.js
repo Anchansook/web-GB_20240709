@@ -100,6 +100,9 @@ function userPasswordInputHandler(event) {
     userPasswordMessageElement.className = 'message';
 
     isPasswordMatch = pattern.test(userPassword);
+    //& test() 
+    // : 메서드는 주어진 문자열이 정규 표현식을 만족하는지 판별
+    //   그 여부를 true 또는 false로 반환
 
     if (!isPasswordMatch && userPassword) {
         userPasswordMessageElement.textContent = '영문, 숫자를 혼용하여 8 ~ 13자 입력해주세요.';
