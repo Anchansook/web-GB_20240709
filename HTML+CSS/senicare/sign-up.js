@@ -52,6 +52,47 @@ function userIdInputHandler(event) {
     userIdButtonElement.className = 'input-button ' + (userId ? 'active' : 'disable');
 };
 
+// 비밀번호 유효성 검사
+function userPasswordInputHandler(event) {
+    var pattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,13}$/;
+    //& ?=.* : 반드시 포함
+    //& /^ $/ : 시작과 끝
+    var userPassword = event.target.value;
+
+    //& 비우는 것 & 기본 상태를 위로 해둬야 잘 먹힘
+    userPasswordMessageElement.textContent = '';
+    userPasswordMessageElement.className = 'message';
+
+    var isMatched = pattern.test(userPassword);
+
+    if (!isMatched && userPassword) {
+        userPasswordMessageElement.textContent = '영문, 숫자를 혼용하여 8 ~ 13자 입력해주세요.';
+        userPasswordMessageElement.className = 'message error';
+        // return; - 밑에 이어져서 나올 내용이 없을 땐 필요 없음
+    }
+};
+
+// 비밀번호 확인
+function userPasswordCheckInputHandler(event) {
+    var userPasswordCheck = event.target.value;
+    var userPassword = userPasswordElement.value;
+
+    var isEqual = userPassword === userPasswordCheck;
+
+    if (isEqual || !userPasswordCheck) {
+        userPasswordCheckMessageElement.textContent = '';
+        userPasswordCheckMessageElement.className = 'message';
+    } else {
+        userPasswordCheckMessageElement.textContent = '비밀번호가 일치하지 않습니다.';
+        userPasswordCheckMessageElement.className = 'message error';
+    }
+};
+
+// 전화번호 입력 확인
+function userTelnumberInputHandler(event) {
+    var pattern = /^[0-9]{11}$/;
+};
+
 // 아이디 존재 여부에 따른 메세지를 출력하는 함수
 function userIdButtonClickHandler(event) {
     var userId = userIdElement.value;
@@ -72,4 +113,8 @@ function userIdButtonClickHandler(event) {
 };
 
 userIdElement.addEventListener('input', userIdInputHandler);
+userPasswordElement.addEventListener('input', userPasswordInputHandler);
+userPasswordCheckElement.addEventListener('input', userPasswordCheckInputHandler);
+userTelnumberElement.addEventListener('input', userTelnumberInputHandler);
 userIdButtonElement.addEventListener('click', userIdButtonClickHandler);
+
