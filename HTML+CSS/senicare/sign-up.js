@@ -19,29 +19,35 @@ var users = [
     }
 ];
 
+var authNumberBoxElement = document.getElementById('auth-number-box');
+
 var userNameElement = document.getElementById('user-name');
 var userIdElement = document.getElementById('user-id');
 var userPasswordElement = document.getElementById('user-password');
 var userPasswordCheckElement = document.getElementById('user-password-check');
 var userTelnumberElement = document.getElementById('user-telnumber');
-var authNumberElement = document.getElementById('user-auth-number');
+var authNumberElement = document.getElementById('auth-number');
 
 var userNameMessageElement = document.getElementById('user-name-message');
 var userIdMessageElement = document.getElementById('user-id-message');
 var userPasswordMessageElement = document.getElementById('user-password-message');
 var userPasswordCheckMessageElement = document.getElementById('user-password-check-message');
 var userTelnumberMessageElement = document.getElementById('user-telnumber-message');
-var authNumberMessageElement = document.getElementById('user-auth-number-message');
+var authNumberMessageElement = document.getElementById('auth-number-message');
 
 var userIdButtonElement = document.getElementById('user-id-button');
 var userTelnumberButtonElement = document.getElementById('user-telnumber-button');
-var authNumberButtonElement = document.getElementById('user-auth-number-button');
+var authNumberButtonElement = document.getElementById('auth-number-button');
 var signUpButtonElement = document.getElementById('sign-up-button');
+
+var userName = '', userId = '', userPassword = '', userPasswordCheck = '', userTelnumber = '', authNumber = ''; 
+var isDuplicatedId = true, isPasswordMatch = false, isEqualPassword = false, isSendTel = false, isTelAuth = false;
 
 // 아이디 input 감지해서 버튼 활성화 | 비활성화 시키는 함수
 // + input 내용을 비우면 class 상태를 기본 상태로 변경
 function userIdInputHandler(event) {
-    var userId = event.target.value;
+    isDuplicatedId = true;
+    userId = event.target.value;
 
     userIdMessageElement.textContent = '';
     userIdMessageElement.className = 'message';
@@ -57,15 +63,15 @@ function userPasswordInputHandler(event) {
     var pattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,13}$/;
     //& ?=.* : 반드시 포함
     //& /^ $/ : 시작과 끝
-    var userPassword = event.target.value;
+    userPassword = event.target.value;
 
     //& 비우는 것 & 기본 상태를 위로 해둬야 잘 먹힘
     userPasswordMessageElement.textContent = '';
     userPasswordMessageElement.className = 'message';
 
-    var isMatched = pattern.test(userPassword);
+    isPasswordMatch = pattern.test(userPassword);
 
-    if (!isMatched && userPassword) {
+    if (!isPasswordMatch && userPassword) {
         userPasswordMessageElement.textContent = '영문, 숫자를 혼용하여 8 ~ 13자 입력해주세요.';
         userPasswordMessageElement.className = 'message error';
         // return; - 밑에 이어져서 나올 내용이 없을 땐 필요 없음
@@ -74,12 +80,11 @@ function userPasswordInputHandler(event) {
 
 // 비밀번호 확인
 function userPasswordCheckInputHandler(event) {
-    var userPasswordCheck = event.target.value;
-    var userPassword = userPasswordElement.value;
+    userPasswordCheck = event.target.value;
 
-    var isEqual = userPassword === userPasswordCheck;
+    isEqualPassword = userPassword === userPasswordCheck;
 
-    if (isEqual || !userPasswordCheck) {
+    if (isEqualPassword || !userPasswordCheck) {
         userPasswordCheckMessageElement.textContent = '';
         userPasswordCheckMessageElement.className = 'message';
     } else {
@@ -88,9 +93,38 @@ function userPasswordCheckInputHandler(event) {
     }
 };
 
-// 전화번호 입력 확인
+// 전화번호 확인
+// + 인증번호 창이 안 보이도록
 function userTelnumberInputHandler(event) {
+    isSendTel = false;
+    authNumberBoxElement.style.display = 'none';
+
     var pattern = /^[0-9]{11}$/;
+    userTelnumber = event.target.value;
+
+    var isMatched = pattern.test(userTelnumber);
+
+    if (!userTelnumber) {
+        userTelnumberMessageElement.textContent = '';
+        userTelnumberMessageElement.className = 'message';
+        userTelnumberButtonElement.className = 'input-button disable';
+    } else if (isMatched) {
+        userTelnumberMessageElement.textContent = '';
+        userTelnumberMessageElement.className = 'message';
+        userTelnumberButtonElement.className = 'input-button active';
+    } else {
+        userTelnumberMessageElement.textContent = '숫자 11자 입력해주세요.';
+        userTelnumberMessageElement.className = 'message error';
+        userTelnumberButtonElement.className = 'input-button disable';
+    }
+};
+
+// 인증번호 확인 버튼 활성화 여부
+function authNumberInputHandler(event) {
+    isTelAuth = false;
+    var authNumber = event.target.value;
+    if (authNumber) authNumberButtonElement.className = 'input-button active';
+    else authNumberButtonElement.className = 'input-button disable';
 };
 
 // 아이디 존재 여부에 따른 메세지를 출력하는 함수
@@ -112,9 +146,46 @@ function userIdButtonClickHandler(event) {
     }
 };
 
+// 전화번호 인증 버튼 눌렀을 때 이벤트 함수
+function userTelnumberButtonClickHandler(event) {
+    var pattern = /^[0-9]{11}$/;
+    var userTelnumber = userTelnumberElement.value;
+
+    var isMatched = pattern.test(userTelnumber);
+    if (!isMatched) return;
+
+    userTelnumberMessageElement.textContent = '인증번호가 전송되었습니다.';
+    userTelnumberMessageElement.className = 'message primary';
+    authNumberBoxElement.style.display = 'flex';
+};
+
+// 인증번호 확인 버튼 누른 후 상태여부 (임의로 인증번호 넣어둠)
+function authNumberButtonClickHandler() {
+    var authNumber = authNumberElement.value;
+    if (!authNumber) return;
+
+    if (authNumber === '2684') {
+        authNumberMessageElement.textContent = '인증번호가 확인되었습니다.';
+        authNumberMessageElement.className = 'message primary';
+    } else {
+        authNumberMessageElement.textContent = '인증번호가 일치하지 않습니다.';
+        authNumberMessageElement.className = 'message error';
+    }
+};
+
+// 회원가입 버튼
+function signUpButtonClickHandler(event) {
+
+};
+
 userIdElement.addEventListener('input', userIdInputHandler);
 userPasswordElement.addEventListener('input', userPasswordInputHandler);
 userPasswordCheckElement.addEventListener('input', userPasswordCheckInputHandler);
 userTelnumberElement.addEventListener('input', userTelnumberInputHandler);
+authNumberElement.addEventListener('input', authNumberInputHandler);
+
 userIdButtonElement.addEventListener('click', userIdButtonClickHandler);
+userTelnumberButtonElement.addEventListener('click', userTelnumberButtonClickHandler);
+authNumberButtonElement.addEventListener('click', authNumberButtonClickHandler);
+signUpButtonElement.addEventListener('click', signUpButtonClickHandler);
 
