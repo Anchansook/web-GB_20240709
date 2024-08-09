@@ -72,6 +72,7 @@ class Sample1 {
 const sample1Instance = new Sample1('퍼블릭', '프라이빗');
 
 console.log(sample1Instance); // Sample1 { publicField: '퍼블릭', staticPublicField: '퍼블릭' }
+// 프라이빗 필드에는 접근을 하지 못함
 // console.log(sample1Instance.#privateField); - error
 console.log(Sample1.staticPublicField); // undefined, 정적 필드는 값을 초기화해야 사용 가능 -> 값이 나옴
 
@@ -80,29 +81,97 @@ console.log('==================================================');
 
 /*
     getter, setter : 
-    - 
-    - 
+    - getter : 프라이빗 멤버 변수의 값을 '얻을 수 있는' 캡슐화 메서드
+    - setter : 프라이빗 멤버 변수의 값을 '할당할 수 있는' 캡슐화 메서드
 */
+class Sample2 {
+    #privateField;
 
+    constructor(privateField) {
+        this.#privateField = privateField;
+    }
+
+    get privateField() {
+        return this.#privateField;
+    }
+
+    set privateField(privateField) {
+        this.#privateField = privateField;
+    }
+    //& 매개변수 꼭 필요!
+}
+const sample2Instance = new Sample2('프라이빗');
+console.log(sample2Instance); // Sample2 {}
+console.log(sample2Instance.privateField); // 값이 나옴
+//& get 메서드에 지정한 이름으로 가져와야 함!
+sample2Instance.privateField = '변경 프라이빗';
+console.log(sample2Instance.privateField); // 변경된 값이 나옴
 
 
 console.log('==================================================');
 
 /*
     인스턴스 메서드와 정적 메서드 : 
-    - 
-    - 
+    - 클래스 내부에서 function 키워드 없이 함수를 작성하여 인스턴스 메서드 선언
+    - static 키워드를 추가하여 정적 메서드 선언
 */
+class Sample3 {
+    instanceMethod() {
+        console.log('인스턴스 메서드');
+    }
 
+    static staticMethod() {
+        console.log('정적 메서드');
+    }
+}
+
+const sample3Instance = new Sample3();
+sample3Instance.instanceMethod();
+// sample3Instance.staticMethod(); - runtime error
+Sample3.staticMethod(); //& static 메서드는 반드시 클래스로 접근해야 함
 
 
 console.log('==================================================');
 
 /*
     클래스 상속 : 
-    - 
-    - 
-    - 
+    - extends 키워드를 사용하여 클래스 상속
+    - 메서드 오버라이딩 가능 (오버로딩 X)
+    - super 키워드로 부모 클래스 참조 가능
 */
+class ParentClass {
+    parentField;
 
+    constructor(parentField) {
+        this.parentField = parentField;
+    }
 
+    parentMethod() {
+        console.log('부모 메서드');
+    }
+}
+
+class ChildClass extends ParentClass {
+    childField;
+
+    constructor(parentField, childField) {
+        super(parentField);
+        this.childField = childField;
+    }
+
+    childMethod() {
+        console.log('자식 메서드');
+    }
+
+    parentMethod() {
+        super.parentMethod(); //& 기존 부모 메서드도 그대로 가져오기 가능
+        console.log('오버라이딩한 부모 메서드');
+    }
+}
+
+const parentInstance = new ParentClass('부모 필드');
+const childInstance = new ChildClass('부모 필드', '자식 필드');
+
+console.log(childInstance);
+childInstance.childMethod();
+childInstance.parentMethod();
