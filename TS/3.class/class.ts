@@ -53,7 +53,7 @@ class Sample3 {
         public publicField: string,
         protected protectedField: string,
         private privateField: string,
-        localVariable: string // 그냥 매개변수
+        localVariable: string // 접근 제어자를 안 쓰면 그냥 매개변수
     ) {}
 }
 
@@ -72,7 +72,8 @@ class Sample4 {
 
     constructor(
         field2: string,
-        public readonly field3: string
+        public readonly field3: string 
+        // 생성자에서 필드를 선언할 때에는 따로 아래처럼 안 써도 인스턴스 생성 시에 값 할당 가능
     ) {
         this.field2 = field2;
     }
@@ -99,7 +100,7 @@ abstract class AbstractClass {
 
 class SubClass extends AbstractClass {
     abstractMethod(arg: string): void {
-        
+
     };
 }
 

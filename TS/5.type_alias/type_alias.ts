@@ -11,6 +11,7 @@ let day: WEEK = '수';
 type BoardContents = string;
 let contents: BoardContents = '내용';
 
+
 //# 객체의 타입 지정 방법
 //& 1. interface 이용
 interface IHuman {
